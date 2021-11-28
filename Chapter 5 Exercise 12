@@ -1,0 +1,43 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+int main()
+{
+	//BULLS and COWS game.You have to guess a 4 digit number.if you get a number right 
+	//in the right position you get a BULL else you get a cow.
+	vector<int> number = { 1,2,3,4 };
+	vector<int> guess = { 0,0,0,0 };
+
+	int aguess = 0;
+	int bulls = 0;
+	int cows = 0;
+
+	while (guess != number)
+	{
+		for (int i = 0; i < guess.size();i++)
+		{
+			cout << "Enter a digit(from 0 to 9) of your 4 digit number.";
+			cin >> aguess;
+			guess[i]=aguess;
+		}
+
+		for (int i = 0; i < number.size(); i++)
+		{
+			for (int j = 0; j < guess.size(); j++)
+			{
+				if (number[i] == guess[j])
+				{
+					if (i == j)
+						bulls++;
+					else
+						cows++;
+				}
+			}
+		}
+		cout << bulls << " Bull and " << cows << " cow"<< endl;
+		if (bulls == 4)
+			break;
+		else
+			cout << "Guess again.";
+	}
+}
