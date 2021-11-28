@@ -1,0 +1,21 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+int main()
+{
+	int a = 1;
+	int b = 1;
+	int c = a + b;
+	int largest = 0;
+	cout << a<<'\n';
+	cout << b<<'\n';
+	while (true) {
+		cout << c << endl;
+		a = b;
+		b = c;
+		c = a + b;
+		if (c < 0)
+			break;
+	}
+	largest = c;
+}
